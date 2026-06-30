@@ -1,0 +1,41 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "claude-chat"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "build/client"
+
+# ─── D1 Database ─────────────────────────────────────────────────────────────
+# Run: wrangler d1 create claude-chat-db
+# Then replace the database_id below
+[[d1_databases]]
+binding = "DB"
+database_name = "claude-chat-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# ─── KV Namespace ────────────────────────────────────────────────────────────
+# Run: wrangler kv namespace create KV
+#      wrangler kv namespace create KV --preview
+# Then replace the id values below
+[[kv_namespaces]]
+binding = "KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+preview_id = "REPLACE_WITH_YOUR_KV_PREVIEW_ID"
+
+# ─── R2 Bucket ───────────────────────────────────────────────────────────────
+# Run: wrangler r2 bucket create claude-chat-logs
+[[r2_buckets]]
+binding = "LOGS"
+bucket_name = "claude-chat-logs"
+
+# ─── Secrets ─────────────────────────────────────────────────────────────────
+# Set via Cloudflare dashboard or CLI (NEVER commit actual values):
+#   wrangler secret put ANTHROPIC_API_KEY
+#   wrangler secret put AI_GATEWAY_URL      (optional)
+#   wrangler secret put AI_GATEWAY_TOKEN    (optional)
+
+# ─── Local Dev ───────────────────────────────────────────────────────────────
+[dev]
+port = 8788
+
+[vars]
+NODE_ENV = "development"

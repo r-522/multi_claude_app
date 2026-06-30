@@ -1,0 +1,12 @@
+# Copy this file to .dev.vars and fill in your values for local development.
+# NEVER commit .dev.vars - it is git-ignored.
+# For production, set secrets via: wrangler secret put <KEY>
+# or in the Cloudflare Pages dashboard under Settings → Environment Variables.
+
+# Required: Your Anthropic API key
+ANTHROPIC_API_KEY=sk-ant-...
+
+# Optional: Cloudflare AI Gateway (recommended for observability + caching)
+# Create a gateway at: https://dash.cloudflare.com → AI → AI Gateway
+AI_GATEWAY_URL=https://gateway.ai.cloudflare.com/v1/YOUR_ACCOUNT_ID/YOUR_GATEWAY_ID/anthropic
+AI_GATEWAY_TOKEN=YOUR_AI_GATEWAY_TOKEN

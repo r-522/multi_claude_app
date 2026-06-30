@@ -1,0 +1,35 @@
+node_modules
+
+/.cache
+/build
+/.wrangler
+
+# Wrangler local dev DB
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Cloudflare secrets (never commit)
+.dev.vars
+.env
+.env.*
+!.env.example
+
+# Testing
+/test-results
+/playwright-report
+/coverage
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+
+# Logs
+*.log
+npm-debug.log*
